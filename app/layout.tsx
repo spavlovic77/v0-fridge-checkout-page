@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
@@ -11,6 +11,12 @@ export const metadata: Metadata = {
   title: "Checkout - FridgeShop",
   description: "Complete your purchase with our new Instant Payment method",
   generator: "v0.app",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "FridgeShop",
+  },
   icons: {
     icon: [
       {
@@ -26,8 +32,16 @@ export const metadata: Metadata = {
         type: "image/svg+xml",
       },
     ],
-    apple: "/apple-icon.png",
+    apple: [{ url: "/apple-icon.png" }, { url: "/icon-180x180.jpg", sizes: "180x180", type: "image/png" }],
   },
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: "#0ea5e9",
 }
 
 export default function RootLayout({
