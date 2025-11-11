@@ -31,7 +31,7 @@ Implementácia je založená na nasledujúcich štandardoch:
 1. **NOP API Client** (`lib/nop-client.ts`)
    - mTLS autentifikácia s NOP API
    - Generovanie transaction ID (EndToEndId)
-   - Endpoint: `https://api-erp-i.kverkom.sk`
+   - Endpoint: `https://api-erp.kverkom.sk`
 
 2. **MQTT Subscribe Handler** (`app/api/instant-payment/subscribe/route.ts`)
    - Long-running request pre MQTT subscription
@@ -189,7 +189,7 @@ VATSK-1234567890/POKLADNICA-88812345678900001/QR-ab29e346f1d841c8a95a63d85749081
 
 #### 4.2 MQTT Broker Konfigurácia
 
-- **Host**: `mqtt-i.kverkom.sk` (hardcoded v kóde)
+- **Host**: `mqtt.kverkom.sk` (hardcoded v kóde)
 - **Port**: `8883` (TLS)
 - **Protokol**: MQTT 3.1.1
 - **Autentifikácia**: mTLS pomocou klientskych certifikátov
@@ -258,7 +258,7 @@ Súbor: `app/api/instant-payment/init/route.ts`
 
 **NOP API Call:**
 \`\`\`typescript
-POST https://api-erp-i.kverkom.sk/api/v1/generateNewTransactionId
+POST https://api-erp.kverkom.sk/api/v1/generateNewTransactionId
 Headers:
   - Content-Type: application/json
 mTLS: Klientsky certifikát + key
@@ -276,7 +276,7 @@ mTLS: Klientsky certifikát + key
 
 Pri úspešnom volaní:
 \`\`\`
-[v0] 🚀 NOP API Request to: https://api-erp-i.kverkom.sk/api/v1/generateNewTransactionId
+[v0] 🚀 NOP API Request to: https://api-erp.kverkom.sk/api/v1/generateNewTransactionId
 [v0] ✅ NOP API Response: { transaction_id: "QR-xxx", created_at: "..." }
 \`\`\`
 
@@ -369,7 +369,7 @@ npm start
 
 **Riešenie:**
 1. Skontrolujte, či sú certifikáty správne nastavené
-2. Overte MQTT host a port (hardcoded: `mqtt-i.kverkom.sk:8883`)
+2. Overte MQTT host a port (hardcoded: `mqtt.kverkom.sk:8883`)
 3. Skontrolujte firewall pravidlá
 
 ### Problém: NOP API SSL handshake failure
