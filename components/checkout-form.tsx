@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { ArrowLeft, Check, Zap } from "lucide-react"
+import { ArrowLeft, Check, Zap, Github } from "lucide-react"
 import { InstantPaymentModal } from "./instant-payment-modal"
 
 export function CheckoutForm() {
@@ -247,6 +247,18 @@ export function CheckoutForm() {
                 )}
               </Button>
             </form>
+
+            <div className="mt-8 flex justify-center">
+              <a
+                href="https://github.com/spavlovic77/v0-fridge-checkout-page"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <Github className="size-5" />
+                <span>View on GitHub</span>
+              </a>
+            </div>
           </div>
 
           <div className="lg:col-span-1">
